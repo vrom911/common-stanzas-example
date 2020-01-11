@@ -1,4 +1,4 @@
-cabal-version:       2.0
+cabal-version:       2.2
 name:                common-stanzas-example
 version:             0.0.0.0
 synopsis:            Example project to demonstrate the common stanzas feature
@@ -8,7 +8,7 @@ bug-reports:         https://github.com/vrom911/common-stanzas-example/issues
 license:             MPL-2.0
 license-file:        LICENSE
 author:              Veronika Romashkina
-maintainer:          vrom911@gmail.com
+maintainer:          Veronika Romashkina <vrom911@gmail.com>
 copyright:           2020 Veronika Romashkina
 category:            Example
 build-type:          Simple
@@ -16,17 +16,23 @@ extra-doc-files:     README.md
                    , CHANGELOG.md
 tested-with:         GHC == 8.8.1
 
+----------------------------------------------------------------------------
+-- Source repository set up
+----------------------------------------------------------------------------
+
 source-repository head
   type:                git
   location:            https://github.com/vrom911/common-stanzas-example.git
 
+----------------------------------------------------------------------------
+-- Library stanza
+----------------------------------------------------------------------------
+
 library
   hs-source-dirs:      src
   exposed-modules:     CommonStanzasExample
-                       
 
   build-depends:       base ^>= 4.13.0.0
-                     
 
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
@@ -54,13 +60,16 @@ library
                        TypeApplications
                        ViewPatterns
 
+----------------------------------------------------------------------------
+-- Executable stanza
+----------------------------------------------------------------------------
+
 executable common-stanzas-example
   hs-source-dirs:      app
   main-is:             Main.hs
 
   build-depends:       base ^>= 4.13.0.0
                      , common-stanzas-example
-                     
 
   ghc-options:         -Wall
                        -threaded
@@ -91,14 +100,62 @@ executable common-stanzas-example
                        TypeApplications
                        ViewPatterns
 
-test-suite common-stanzas-example-test
+----------------------------------------------------------------------------
+-- Test suite # 1
+----------------------------------------------------------------------------
+
+test-suite test-suite-1
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
-  main-is:             Spec.hs
+  main-is:             Spec1.hs
 
   build-depends:       base ^>= 4.13.0.0
                      , common-stanzas-example
-                     
+                     , hedgehog ^>= 1.0
+                     , hspec ^>= 2.7.1
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
+  default-extensions:  ConstraintKinds
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       InstanceSigs
+                       KindSignatures
+                       LambdaCase
+                       OverloadedStrings
+                       RecordWildCards
+                       ScopedTypeVariables
+                       StandaloneDeriving
+                       TupleSections
+                       TypeApplications
+                       ViewPatterns
+
+----------------------------------------------------------------------------
+-- Test suite # 2
+----------------------------------------------------------------------------
+
+test-suite test-suite-2
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec2.hs
+
+  build-depends:       base ^>= 4.13.0.0
+                     , common-stanzas-example
+                     , hedgehog ^>= 1.0
+                     , hspec ^>= 2.7.1
 
   ghc-options:         -Wall
                        -threaded
