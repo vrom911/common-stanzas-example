@@ -1,0 +1,83 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 92e5919112f5fc05a6b100724203031f5920cd7493bda6caf2ebc59b32d7511b
+
+name:           common-stanzas-example-hpack
+version:        0.0.0.0
+synopsis:       Example project to demonstrate the common stanzas feature
+description:    Example project to demonstrate the common stanzas feature
+category:       Example
+homepage:       https://github.com/vrom911/common-stanzas-example#readme
+bug-reports:    https://github.com/vrom911/common-stanzas-example/issues
+author:         Veronika Romashkina
+maintainer:     Veronika Romashkina <vrom911@gmail.com>
+copyright:      2020 Veronika Romashkina
+license:        MPL-2.0
+license-file:   LICENSE
+tested-with:    GHC == 8.8.1
+build-type:     Simple
+extra-doc-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/vrom911/common-stanzas-example
+
+library
+  exposed-modules:
+      CommonStanzasExample
+  other-modules:
+      Paths_common_stanzas_example_hpack
+  hs-source-dirs:
+      src
+  default-extensions: ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wmissing-export-lists -Wpartial-fields -Wmissing-deriving-strategies
+  build-depends:
+      base >=4.13.0.0 && <4.14
+  default-language: Haskell2010
+
+executable common-stanzas-example-hpack
+  main-is: Main.hs
+  other-modules:
+      Paths_common_stanzas_example_hpack
+  hs-source-dirs:
+      app
+  default-extensions: ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wmissing-export-lists -Wpartial-fields -Wmissing-deriving-strategies -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.13.0.0 && <4.14
+    , common-stanzas-example-hpack
+  default-language: Haskell2010
+
+test-suite test-suite-1-hpack
+  type: exitcode-stdio-1.0
+  main-is: Spec1.hs
+  hs-source-dirs:
+      test
+  default-extensions: ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wmissing-export-lists -Wpartial-fields -Wmissing-deriving-strategies -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.13.0.0 && <4.14
+    , common-stanzas-example-hpack
+    , hedgehog >=1.0 && <1.1
+    , hspec >=2.7.1 && <2.8
+  default-language: Haskell2010
+
+test-suite test-suite-2-hpack
+  type: exitcode-stdio-1.0
+  main-is: Spec2.hs
+  hs-source-dirs:
+      test
+  default-extensions: ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns ConstraintKinds DeriveGeneric GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications ViewPatterns
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat -Widentities -Wredundant-constraints -fhide-source-paths -Wmissing-export-lists -Wpartial-fields -Wmissing-deriving-strategies -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.13.0.0 && <4.14
+    , common-stanzas-example-hpack
+    , hedgehog >=1.0 && <1.1
+    , hspec >=2.7.1 && <2.8
+  default-language: Haskell2010

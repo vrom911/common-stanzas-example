@@ -1,0 +1,76 @@
+_common: !include "common.yaml"
+
+verbatim:
+  cabal-version: 2.2
+name: common-stanzas-example-hpack
+version: '0.0.0.0'
+synopsis: "Example project to demonstrate the common stanzas feature"
+description: "Example project to demonstrate the common stanzas feature"
+license: MPL-2.0
+license-file:
+  - "LICENSE"
+author:
+  - "Veronika Romashkina"
+maintainer:
+  - "Veronika Romashkina <vrom911@gmail.com>"
+copyright:
+  - "2020 Veronika Romashkina"
+category: "Example"
+build-type: Simple
+extra-doc-files:
+  - README.md
+  - CHANGELOG.md
+tested-with: "GHC == 8.8.1"
+
+############################################################################
+## Source repository set up
+############################################################################
+
+github: vrom911/common-stanzas-example
+
+<<: *common-options
+
+############################################################################
+## Library stanza
+############################################################################
+
+library:
+  source-dirs: src
+
+############################################################################
+## Executable stanza
+############################################################################
+
+executables:
+  common-stanzas-example-hpack:
+    source-dirs: app
+    main: "Main.hs"
+
+    dependencies:
+      - name: "common-stanzas-example-hpack"
+
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+
+
+tests:
+
+############################################################################
+## Test suite # 1
+############################################################################
+
+    test-suite-1-hpack:
+      <<: *common-tests
+      main: Spec1.hs
+      other-modules: []
+
+############################################################################
+## Test suite # 2
+############################################################################
+
+    test-suite-2-hpack:
+      <<: *common-tests
+      main: Spec2.hs
+      other-modules: []
