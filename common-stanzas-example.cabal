@@ -58,6 +58,22 @@ common common-options
                        ViewPatterns
 
 ----------------------------------------------------------------------------
+-- Common stanza for tests
+----------------------------------------------------------------------------
+
+common common-tests
+  import:              common-options
+  hs-source-dirs:      test
+
+  build-depends:       common-stanzas-example
+                     , hedgehog ^>= 1.0
+                     , hspec ^>= 2.7.1
+
+  ghc-options:         -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+
+----------------------------------------------------------------------------
 -- Library stanza
 ----------------------------------------------------------------------------
 
@@ -86,33 +102,15 @@ executable common-stanzas-example
 ----------------------------------------------------------------------------
 
 test-suite test-suite-1
-  import:              common-options
+  import:              common-tests
   type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
   main-is:             Spec1.hs
-
-  build-depends:       common-stanzas-example
-                     , hedgehog ^>= 1.0
-                     , hspec ^>= 2.7.1
-
-  ghc-options:         -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
 
 ----------------------------------------------------------------------------
 -- Test suite # 2
 ----------------------------------------------------------------------------
 
 test-suite test-suite-2
-  import:              common-options
+  import:              common-tests
   type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
   main-is:             Spec2.hs
-
-  build-depends:       common-stanzas-example
-                     , hedgehog ^>= 1.0
-                     , hspec ^>= 2.7.1
-
-  ghc-options:         -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
