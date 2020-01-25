@@ -12,7 +12,7 @@ I described the motivation and each commit of this repository in the following b
  
 You can build this package with `Cabal` using the following command:
 
-```
+```shell
 cabal build all
 ```
 
